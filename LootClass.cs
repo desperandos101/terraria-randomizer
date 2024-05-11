@@ -101,6 +101,7 @@ namespace LootClass {
             (1, new int[] {ItemID.DD2BallistraTowerT1Popper, ItemID.DD2ExplosiveTrapT1Popper, ItemID.DD2FlameburstTowerT1Popper, ItemID.DD2LightningAuraT1Popper}),
             (1, new int[] {ItemID.DD2BallistraTowerT2Popper, ItemID.DD2ExplosiveTrapT2Popper, ItemID.DD2FlameburstTowerT2Popper, ItemID.DD2LightningAuraT2Popper}),
             (1, new int[] {ItemID.DD2BallistraTowerT3Popper, ItemID.DD2ExplosiveTrapT3Popper, ItemID.DD2FlameburstTowerT3Popper, ItemID.DD2LightningAuraT3Popper}),
+            (1, new int[] {ItemID.SquireShield, ItemID.MonkBelt, ItemID.ApprenticeScarf, ItemID.HuntressBuckler}),
             (1, new int[] {ItemID.RedsWings, ItemID.DTownsWings, ItemID.WillsWings, ItemID.CrownosWings, ItemID.CenxsWings, 3228, ItemID.Yoraiz0rWings, ItemID.JimsWings, ItemID.SkiphsWings, ItemID.LokisWings, ItemID.ArkhalisWings, ItemID.LeinforsWings, ItemID.GhostarsWings, ItemID.SafemanWings, ItemID.FoodBarbarianWings, ItemID.GroxTheGreatWings}),
             (2, new int[] {ItemID.FinWings, ItemID.IceFeather, ItemID.Jetpack, ItemID.LeafWings, ItemID.BrokenBatWing, ItemID.TatteredBeeWing, ItemID.ButterflyDust, ItemID.FireFeather, ItemID.BoneFeather, ItemID.MothronWings, ItemID.FestiveWings, ItemID.SpookyTwig, ItemID.BlackFairyDust, ItemID.SteampunkWings, ItemID.BetsyWings, ItemID.RainbowWings, ItemID.FishronWings})
         };

@@ -18,4 +18,22 @@ Mods: {
 			}
 		}
 	}
+
+	MajorItemRandomizer: {
+		Configs: {
+			RandoConfig: {
+				DisplayName: Rando Config
+
+				EnableFishing: {
+					Label: Enable Fishing Checks
+					Tooltip: ""
+				}
+
+				EnableTownDrops: {
+					Label: Enable Drops From Town NPCs
+					Tooltip: ""
+				}
+			}
+		}
+	}
 }

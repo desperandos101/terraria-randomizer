@@ -1,1 +1,25 @@
-Randomizes locations of accessories, weapons, and more.
+Randomize the locations of accessories, weapons, and more!
+
+This randomizer aims to shake up the average Terraria playthrough by scrambling the locations of major equipment, ranging from accessories, weapons, hooks, armor sets, pets, and more. You might find a paintball gun in an underground desert chest, reel in a minishark, or find a musket being sold by the party girl. You are incentivized to deviate from your usual playstyle and check in spots you wouldn't normally check for the items you need to progress.
+
+Items are assigned unique, consistent locations that are saved with the world, in a way that closely imitates how base Terraria distributes items.
+
+The randomized items include:
+- Primary Chest Items (grouped by chest type)
+- Enemy/NPC Drops
+- NPC Shop Items
+- Fishing, Crate, and Quest items
+- Boss Drops
+- Shadow Orb Drops (as well as the water bolt)
+
+Pre-hardmode and hardmode items are grouped separately to prevent any severe imbalance.
+
+NOTES:
+- Every town NPC will sell something in the pool, so don't skip out on recruiting the golfer!
+- Major bosses will drop all their items at once, so no need to re-fight them.
+- On the other hand, minibosses will drop one item at a time.
+- You can configure whether you would like to randomize fishing-related drops, and if you want certain Town NPCs to drop an item from the pool when they die. (namely the stylist, dye trader, painter, tavernkeep, tax collector, and princess)
+
+Compatibility with multiplayer and other mods are untested.
+
+Please let me know if you have any questions!
