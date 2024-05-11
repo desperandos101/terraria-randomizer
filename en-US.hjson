@@ -1,0 +1,21 @@
+Mods: {
+	ItemSwapper: {
+		Configs: {
+			RandoConfig: {
+				DisplayName: Rando Config
+
+				EnableFishing: {
+					Label: Enable Fishing Checks
+					Tooltip: ""
+				}
+
+				Headers.EnableFishingChecks: Enable Fishing Checks Header
+
+				EnableTownDrops: {
+					Label: Enable Drops From Town NPCs
+					Tooltip: ""
+				}
+			}
+		}
+	}
+}
