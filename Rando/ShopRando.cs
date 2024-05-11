@@ -9,7 +9,7 @@ using LootClass;
 
 using MyExtensions;
 
-namespace ItemSwapper
+namespace MajorItemRandomizer
 {
     public class EnemyLoot : GlobalNPC {
 	

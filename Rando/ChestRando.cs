@@ -12,7 +12,7 @@ using Terraria.GameContent.Achievements;
 
 using LootClass;
 using Terraria.GameContent.ItemDropRules;
-using ItemSwapper;
+using MajorItemRandomizer;
 using CustomDropRule;
 using System.Linq.Expressions;
 using ReLogic.Content;
@@ -28,7 +28,7 @@ using Mono.CompilerServices.SymbolWriter;
 
 using Terraria;
 
-namespace ItemSwapper {
+namespace MajorItemRandomizer {
     public static class ChestRando {
         public static void RandomizeChests() {
             var chestList = from chest in Main.chest

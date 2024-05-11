@@ -10,7 +10,7 @@ using Terraria.ModLoader.IO;
 using Terraria.GameContent.ItemDropRules;
 
 using LootClass;
-using ItemSwapper;
+using MajorItemRandomizer;
 using System.Runtime.CompilerServices;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Security.Cryptography;

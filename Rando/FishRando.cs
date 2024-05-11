@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using System;
-using ItemSwapper;
+using MajorItemRandomizer;
 
 namespace PreBobbery {
     public class BobberOverride : GlobalProjectile {

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using System;
-using ItemSwapper;
+using MajorItemRandomizer;
 using Terraria.GameContent.ItemDropRules;
 using System.Linq;
 using LootClass;

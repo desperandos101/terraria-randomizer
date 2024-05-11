@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ItemSwapper\\ItemSwapper.csproj": {}
+    "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MajorItemRandomizer\\ItemSwapper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ItemSwapper\\ItemSwapper.csproj": {
+    "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MajorItemRandomizer\\ItemSwapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ItemSwapper\\ItemSwapper.csproj",
-        "projectName": "ItemSwapper",
-        "projectPath": "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ItemSwapper\\ItemSwapper.csproj",
+        "projectUniqueName": "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MajorItemRandomizer\\ItemSwapper.csproj",
+        "projectName": "MajorItemRandomizer",
+        "projectPath": "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MajorItemRandomizer\\ItemSwapper.csproj",
         "packagesPath": "C:\\Users\\Vasili\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\ItemSwapper\\obj\\",
+        "outputPath": "C:\\Users\\Vasili\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MajorItemRandomizer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vasili\\AppData\\Roaming\\NuGet\\NuGet.Config",

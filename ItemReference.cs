@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static System.Random;
 
-namespace ItemSwapper {
+namespace MajorItemRandomizer {
     public static class ItemReference {
         private static Random rnd = new Random();
         #region Private Datasets

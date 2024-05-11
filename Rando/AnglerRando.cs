@@ -12,7 +12,7 @@ using Terraria.GameContent.Achievements;
 
 using LootClass;
 using Terraria.GameContent.ItemDropRules;
-using ItemSwapper;
+using MajorItemRandomizer;
 using CustomDropRule;
 using System.Linq.Expressions;
 using ReLogic.Content;
@@ -23,7 +23,7 @@ using Microsoft.Xna.Framework;
 using Terraria.GameContent.UI;
 using Terraria.GameContent.Bestiary;
 
-namespace ItemSwapper {
+namespace MajorItemRandomizer {
     public class AnglerLoot : ModPlayer {
         public override void AnglerQuestReward(float rareMultiplier, List<Item> rewardItems)
         {

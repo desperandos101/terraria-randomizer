@@ -1,5 +1,5 @@
 using Humanizer;
-using ItemSwapper;
+using MajorItemRandomizer;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Xna.Framework;
 using MyExtensions;
