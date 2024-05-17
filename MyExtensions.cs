@@ -8,6 +8,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
+using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace MyExtensions {
     public static class MyExtensions {
@@ -45,6 +46,15 @@ namespace MyExtensions {
             }
             return newArray;
         }
+        public static Dictionary<TKey, TValue> ConvertTupleToDict<TKey, TValue>((TValue, TKey[])[] tupleArray) {
+            Dictionary<TKey, TValue> dict = new Dictionary<TKey, TValue>();
+            foreach((TValue, TKey[]) tuple in tupleArray) {
+                foreach (TKey key in tuple.Item2) {
+                    dict[key] = tuple.Item1;
+                }
+            }
+            return dict;
+        } 
         
     }
 }

@@ -54,6 +54,7 @@ namespace CustomDropRule {
             NPCID.QueenBee,
             NPCID.SkeletronHead,
             NPCID.DD2DarkMageT1,
+            NPCID.WallofFlesh,
             NPCID.GoblinShark,
             NPCID.BloodEelHead,
             NPCID.BloodNautilus,

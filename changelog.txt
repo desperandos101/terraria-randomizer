@@ -1,0 +1,1 @@
+- Fixed Wall of Flesh not dropping anything

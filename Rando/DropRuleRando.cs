@@ -62,7 +62,7 @@ namespace CrateDrop {
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if (new int [] {NPCID.Retinazer, NPCID.Spazmatism}.Contains(npc.type))
+            if (new int [] {NPCID.WallofFlesh}.Contains(npc.type))
                 Console.WriteLine("shite");
             LootSet mySet = SetManagement.mySet;
             int npcTypeFormatted = npc.IDNPC();
