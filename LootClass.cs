@@ -6,6 +6,7 @@ using MyExtensions;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
@@ -106,7 +107,7 @@ namespace LootClass {
             (2, new int[] {ItemID.FinWings, ItemID.IceFeather, ItemID.Jetpack, ItemID.LeafWings, ItemID.BrokenBatWing, ItemID.TatteredBeeWing, ItemID.ButterflyDust, ItemID.FireFeather, ItemID.BoneFeather, ItemID.MothronWings, ItemID.FestiveWings, ItemID.SpookyTwig, ItemID.BlackFairyDust, ItemID.SteampunkWings, ItemID.BetsyWings, ItemID.RainbowWings, ItemID.FishronWings})
         };
         public IEnumerable<LootPool> GetValidPools(IEnumerable<LootPool> pools, int region) => from pool in pools where pool.region == region && pool.randoEnabled select pool;
-        public void SortAndFill(IEnumerable<LootPool> pools, List<int> allItems, ref int allItemCount, HashSet<LootPool> scooperPools, int defaultSetSize = 0) {
+        public void SortAndFill(IEnumerable<LootPool> pools, List<int> allItems, ref int allItemCount, List<LootPool> scooperPools, int defaultSetSize = 0) {
             foreach (LootPool pool in pools) {
                 if (pool.scoops == 0) {
                     allItemCount -= pool.Fill(allItems, defaultSetSize);
@@ -145,7 +146,7 @@ namespace LootClass {
                     throw new Exception("CONTAINS DUPLICATES");
 
                 int totalItemCount = allItems.Count();
-                HashSet<LootPool> scooperPools = new HashSet<LootPool>() {}; 
+                List<LootPool> scooperPools = new List<LootPool>() {}; 
 
                 SortAndFill(validChests, allItems, ref totalItemCount, scooperPools);
                 SortAndFill(validRules, allItems, ref totalItemCount, scooperPools, 1 - i);
@@ -158,25 +159,18 @@ namespace LootClass {
                 foreach (LootPool pool in scooperPools) {
                     totalScoops += pool.scoops;
                 }
+
+                scooperPools.Sort((p1, p2) => p1.scoops - p2.scoops);
+
                 if (totalScoops != 0) {
                     int chestSlots = totalItemCount / totalScoops;
                     int chestSlotRemainder = totalItemCount % totalScoops;
-
                     foreach (LootPool pool in scooperPools) {
-                        if (chestSlotRemainder > 0 && pool.scoops == 1) { // Initially, we want to avoid giving the remainders to pools with larger scoop counts.
-                            totalItemCount -= pool.Fill(allItems, chestSlots + 1);
+                        if (chestSlotRemainder > 0) { // Initially, we want to avoid giving the remainders to pools with larger scoop counts.
+                            totalItemCount -= pool.Fill(allItems, chestSlots * pool.scoops + 1);
                             chestSlotRemainder--;
                         } else {
                             totalItemCount -= pool.Fill(allItems, chestSlots * pool.scoops);
-                        }
-                    }
-                    if (chestSlotRemainder > 0) {//// However, if we didn't use up the entirety of the remaining slots, we'll pass out remainders to larger scoops.
-                        foreach (LootPool pool in scooperPools) {
-                            if (chestSlotRemainder > 0 && pool.randomSet.Length == 0) {
-                                totalItemCount -= pool.Fill(allItems, chestSlots * pool.scoops + 1);
-                            } else if (chestSlotRemainder == 0) {
-                                break;
-                            }
                         }
                     }
                 }

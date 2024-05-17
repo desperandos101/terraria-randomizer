@@ -52,7 +52,7 @@ namespace CustomDropRule {
             NPCID.KingSlime,
             NPCID.Deerclops,
             NPCID.QueenBee,
-            NPCID.Skeleton,
+            NPCID.SkeletronHead,
             NPCID.DD2DarkMageT1,
             NPCID.GoblinShark,
             NPCID.BloodEelHead,

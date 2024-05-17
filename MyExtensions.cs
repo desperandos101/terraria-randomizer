@@ -23,8 +23,11 @@ namespace MyExtensions {
         }
         public static T[] GetRandomSubset<T>(this IEnumerable<T> theEnum, int newArrayCount, bool removeSubsetFromList = false) {
             List<T> oldList = theEnum.ToList();
-            if (oldList.Count() <= newArrayCount || newArrayCount == -1)
+            if (oldList.Count() <= newArrayCount || newArrayCount == -1) {
+                if (removeSubsetFromList && theEnum is List<T> theList)
+                    theList.RemoveAll(t => true);
                 return oldList.ToArray();
+            }
             T[] newArray = new T[newArrayCount];
             for (int i = 0; i < newArrayCount; i++) {
                 T randItem = oldList[rnd.Next(oldList.Count())];

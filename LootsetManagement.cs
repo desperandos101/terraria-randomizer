@@ -20,6 +20,9 @@ using Terraria.GameContent.Bestiary;
 using Config;
 using CrateDrop;
 using Mono.CompilerServices.SymbolWriter;
+using Terraria.WorldBuilding;
+using Terraria.IO;
+using System;
 
 namespace MajorItemRandomizer
 {
@@ -50,7 +53,7 @@ namespace MajorItemRandomizer
 			/*Blood Pool*/mySet.AddRulePool(0, new int[] {586, 587}, new int[] {4381, 4325, 4273});
 			/*Bone Sword + Helmets*/mySet.AddRulePool(0, new int[] {21}, new int[] {1166, 954, 955});
 			/*Cobalt Armor*/mySet.AddRulePool(0, new int[] {42, 43}, new int[] {960});
-			/*Combat Wrench*/mySet.AddRulePool(0, new int[] {NPCID.Merchant}, new int[] {ItemID.CombatWrench}, -1);
+			/*Combat Wrench*/mySet.AddRulePool(0, new int[] {NPCID.Mechanic}, new int[] {ItemID.CombatWrench}, -1);
 			/*Compass*/mySet.AddRulePool(0, new int[] {494, 496, 498, 58, 16, 185, 167, 197}, new int[] {393});
 			/*Chain Knife*/mySet.AddRulePool(0, new int[] {49}, new int[] {1325});
 			/*Demon Scythe*/mySet.AddRulePool(0, new int[] {62, 66}, new int[] {272});
@@ -75,6 +78,7 @@ namespace MajorItemRandomizer
 			/*Shackle, Zombie Arm*/mySet.AddRulePool(0, new int[] {3}, new int[] {216, 1304});
 			/*Shadow Armor*/mySet.AddRulePool(0, new int[] {6}, new int[] {956});
 			/*Shark Tooth Necklace*/mySet.AddRulePool(0, new int[] {489, 490}, new int[] {3212});
+			/*Shroomerang*/mySet.AddRulePool(0, new int[] {NPCID.SporeBat}, new int[] {ItemID.Shroomerang});
 			/*Slime Staff*/mySet.AddRulePool(0, new int[] {-3, 1, -8, -7, -9, -6, 147, 537, -10, 184, 204, 16, -5, -4, 535, 302, 333, 334, 335, 336, 141, 121, 138, 658, 659, 660}, new int[] {1309});
 			/*Stylish Scissors*/mySet.AddRulePool(0, new int[] {NPCID.Stylist}, new int[] {3352}, -1);
 			/*Tally Counter*/mySet.AddRulePool(0, new int[] {NPCID.CursedSkull, NPCID.DarkCaster, NPCID.AngryBones}, new int[] {ItemID.TallyCounter});
@@ -285,6 +289,14 @@ namespace MajorItemRandomizer
 				mySet.GetRulePools(NPCID.Mechanic)[0].randomSet = new int[1];
 				mySet.GetRulePools(NPCID.TaxCollector)[0].randomSet = new int[1];
 				mySet.GetRulePools(NPCID.Princess)[0].randomSet = new int[1];
+
+				mySet.GetRulePools(NPCID.DyeTrader)[0].fillRandom = true;
+				mySet.GetRulePools(NPCID.DD2Bartender)[0].fillRandom = true;
+				mySet.GetRulePools(NPCID.Stylist)[0].fillRandom = true;
+				mySet.GetRulePools(NPCID.Painter)[0].fillRandom = true;
+				mySet.GetRulePools(NPCID.Mechanic)[0].fillRandom = true;
+				mySet.GetRulePools(NPCID.TaxCollector)[0].fillRandom = true;
+				mySet.GetRulePools(NPCID.Princess)[0].fillRandom = true;
 			}
 			#endregion
 		}
@@ -410,7 +422,7 @@ namespace MajorItemRandomizer
 			}
 
 			mySet.Randomize();
-
+			ChestRando.RandomizeChests();
 			
         }
         public override void OnModLoad()
@@ -430,6 +442,12 @@ namespace MajorItemRandomizer
     }
 
 	public class FishLoot : ModPlayer {
+        public override void OnEnterWorld()
+        {
+			if (!Main.ActiveWorldFileData.TryGetModVersionGeneratedWith("MajorItemRandomizer", out Version modVersion)) {
+				Main.NewText("[Major Item Randomizer] WARNING: This world is not randomized. Some things, like Town NPC Shops, may not work correctly. Please reload the world with the mod disabled.");
+			}
+        }
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
         {
 			LootSet mySet = SetManagement.mySet;
