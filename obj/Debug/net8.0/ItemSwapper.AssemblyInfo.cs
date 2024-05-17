@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MajorItemRandomizer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e1ec43feb886f2c41e34fe4c751f6ccaf4829d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7852587e5f50514c607a9ba7a3e25258c7d307e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("MajorItemRandomizer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MajorItemRandomizer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

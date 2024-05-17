@@ -62,8 +62,6 @@ namespace CrateDrop {
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if (new int [] {NPCID.WallofFlesh}.Contains(npc.type))
-                Console.WriteLine("shite");
             LootSet mySet = SetManagement.mySet;
             int npcTypeFormatted = npc.IDNPC();
             int[] itemsToRemove = mySet.GetInitialRuleOptions(npcTypeFormatted);
@@ -74,6 +72,8 @@ namespace CrateDrop {
             }
             if (mySet.GetRulePools(npcTypeFormatted).Any())
                 npcLoot.Add(new LootsetDropRule(50));
+            if (new int [] {NPCID.Plantera}.Contains(npc.type))
+                npcLoot.Add(new CommonDrop(ItemID.TempleKey, 1));
             
         }
     }

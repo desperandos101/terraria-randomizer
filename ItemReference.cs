@@ -36,7 +36,8 @@ namespace MajorItemRandomizer {
             (NPCID.HellArmoredBones, new int[] {NPCID.HellArmoredBonesMace, NPCID.HellArmoredBonesSpikeShield, NPCID.HellArmoredBonesSword}),
             (NPCID.DiabolistRed, new int[] {NPCID.DiabolistWhite}),
             (NPCID.Necromancer, new int[] {NPCID.NecromancerArmored}),
-            (NPCID.RaggedCaster, new int[] {NPCID.RaggedCasterOpenCoat})
+            (NPCID.RaggedCaster, new int[] {NPCID.RaggedCasterOpenCoat}),
+            (NPCID.Vampire, new int[] {NPCID.VampireBat})
             };
         public static int[] eowIDs = new int[] {13, 14, 15};
         

@@ -256,8 +256,8 @@ namespace MajorItemRandomizer
 			mySet.AddRulePool(1, new int[] {ItemID.TwinsBossBag}, new int[] {ItemID.MechanicalWheelPiece}, 0, 1);
 			/*Skeletron Prime*/mySet.AddRulePool(1, new int[] {NPCID.SkeletronPrime}, new int[] {}, 0, 1);
 			mySet.AddRulePool(1, new int[] {ItemID.SkeletronPrimeBossBag}, new int[] {ItemID.MechanicalBatteryPiece}, 0, 1);
-			/*Plantera*/mySet.AddRulePool(1, new int[] {NPCID.Plantera}, new int[] {ItemID.GrenadeLauncher, ItemID.VenusMagnum, ItemID.NettleBurst, ItemID.LeafBlower, ItemID.FlowerPow, ItemID.WaspGun, ItemID.Seedler, ItemID.PygmyStaff, ItemID.ThornHook}, 0, 1);
-			mySet.AddRulePool(1, new int[] {ItemID.PlanteraBossBag}, new int[] {ItemID.GrenadeLauncher, ItemID.VenusMagnum, ItemID.NettleBurst, ItemID.LeafBlower, ItemID.FlowerPow, ItemID.WaspGun, ItemID.Seedler, ItemID.PygmyStaff, ItemID.ThornHook, ItemID.SporeSac}, 0, 1);
+			/*Plantera*/mySet.AddRulePool(1, new int[] {NPCID.Plantera}, new int[] {ItemID.GrenadeLauncher, ItemID.VenusMagnum, ItemID.NettleBurst, ItemID.LeafBlower, ItemID.FlowerPow, ItemID.WaspGun, ItemID.Seedler, ItemID.PygmyStaff, ItemID.ThornHook, ItemID.TheAxe}, 0, 1);
+			mySet.AddRulePool(1, new int[] {ItemID.PlanteraBossBag}, new int[] {ItemID.GrenadeLauncher, ItemID.VenusMagnum, ItemID.NettleBurst, ItemID.LeafBlower, ItemID.FlowerPow, ItemID.WaspGun, ItemID.Seedler, ItemID.PygmyStaff, ItemID.ThornHook, ItemID.TheAxe, ItemID.SporeSac}, 0, 1);
 			/*Golem*/mySet.AddRulePool(1, new int[] {NPCID.Golem}, new int[] {ItemID.Picksaw, ItemID.Stynger, ItemID.PossessedHatchet, ItemID.SunStone, ItemID.EyeoftheGolem, ItemID.HeatRay, ItemID.StaffofEarth, ItemID.GolemFist}, 0, 1);
 			mySet.AddRulePool(1, new int[] {ItemID.GolemBossBag}, new int[] {ItemID.Picksaw, ItemID.Stynger, ItemID.PossessedHatchet, ItemID.SunStone, ItemID.EyeoftheGolem, ItemID.HeatRay, ItemID.StaffofEarth, ItemID.GolemFist, ItemID.ShinyStone}, 0, 1);
 			/*Mourning Wood*/mySet.AddRulePool(1, new int[] {NPCID.MourningWood, ItemID.CursedSapling}, new int[] {ItemID.StakeLauncher, ItemID.NecromanticScroll, ItemID.SpookyHook, ItemID.SpookyTwig, ItemID.CursedSapling}, 0, 1);
