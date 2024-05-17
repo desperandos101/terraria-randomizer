@@ -11,6 +11,7 @@ using System.Linq;
 using LootClass;
 using System.Collections.Generic;
 using CustomDropRule;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CrateDrop {
     public class ModifyCrates : GlobalItem {
@@ -33,18 +34,30 @@ namespace CrateDrop {
                 LootSet mySet = SetManagement.mySet;
                 int[] options = mySet.GetInitialRuleOptions(item.type); //Skipping the npc format step, we dont have to do this with boss bags
                 if (options.Length != 0) {
-                    itemLoot.RemoveWhere(rule => NPCDropRule.RuleHasSetItems(rule, options));
+                    itemLoot.RemoveWhere(rule => NPCDropRule.CheckRule(rule, options));
                     itemLoot.Add(new LootsetDropRule(1));
                 }
             }
         }
     }
     public class NPCDropRule : GlobalNPC {
+        public static IItemDropRule[] GetChainedRules(LeadingConditionRule condRule) {
+            List<IItemDropRule> ruleList = new List<IItemDropRule>();
+            foreach (IItemDropRuleChainAttempt rule in condRule.ChainedRules) {
+                IItemDropRule newRule = rule.RuleToChain;
+                if (newRule is LeadingConditionRule anotherCondRule) {
+                    ruleList.AddRange(GetChainedRules(anotherCondRule));
+                } else {
+                    ruleList.Add(newRule);
+                }
+            }
+            return ruleList.ToArray();
+        }
         public static bool CheckRule(IItemDropRule rule, int[] options) {
             if (rule is DropBasedOnExpertMode expertRule) {
                 return RuleHasSetItems(expertRule.ruleForNormalMode, options) || RuleHasSetItems(expertRule.ruleForExpertMode, options);
             } else if (rule is LeadingConditionRule condRule) {
-                return condRule.ChainedRules.Any(p => RuleHasSetItems(p.RuleToChain, options));
+                return GetChainedRules(condRule).Any(p => RuleHasSetItems(p, options));
             } else {
                 return RuleHasSetItems(rule, options);
             }
@@ -62,6 +75,8 @@ namespace CrateDrop {
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
+            if (new int [] {NPCID.DukeFishron}.Contains(npc.type))
+                Console.WriteLine("<LOADED>");
             LootSet mySet = SetManagement.mySet;
             int npcTypeFormatted = npc.IDNPC();
             int[] itemsToRemove = mySet.GetInitialRuleOptions(npcTypeFormatted);

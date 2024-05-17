@@ -84,6 +84,7 @@ namespace CustomDropRule {
             NPCID.GoblinSummoner,
             NPCID.PirateShip,
             NPCID.MartianSaucer,
+            NPCID.MartianSaucerCore,
             NPCID.MourningWood,
             NPCID.Pumpking,
             NPCID.Everscream,
@@ -138,7 +139,7 @@ namespace CustomDropRule {
         public bool CanDrop(DropAttemptInfo info) {
             if (!isNotEaterSegment(info))
                 return false;
-            if (info.npc is not null && info.IsExpertMode && info.npc.boss)
+            if (info.npc is not null && info.IsExpertMode && info.npc.boss && info.npc.type != NPCID.MartianSaucerCore)
                 return false;
             if (info.npc is not null && info.npc.type == NPCID.Spazmatism) {
                 return !NPC.AnyNPCs(NPCID.Retinazer);

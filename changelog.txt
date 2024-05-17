@@ -1,1 +1,2 @@
-- Fixed Wall of Flesh not dropping anything
+- Fixed Martian Saucer not dropping any items
+- Fixed Duke Fishron dropping his original items after randomization

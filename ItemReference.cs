@@ -37,7 +37,8 @@ namespace MajorItemRandomizer {
             (NPCID.DiabolistRed, new int[] {NPCID.DiabolistWhite}),
             (NPCID.Necromancer, new int[] {NPCID.NecromancerArmored}),
             (NPCID.RaggedCaster, new int[] {NPCID.RaggedCasterOpenCoat}),
-            (NPCID.Vampire, new int[] {NPCID.VampireBat})
+            (NPCID.Vampire, new int[] {NPCID.VampireBat}),
+            (NPCID.MartianSaucer, new int[] {NPCID.MartianSaucerCore})
             };
         public static int[] eowIDs = new int[] {13, 14, 15};
         
@@ -57,7 +58,8 @@ namespace MajorItemRandomizer {
             {ItemID.GladiatorHelmet, new int[] {ItemID.GladiatorBreastplate, ItemID.GladiatorLeggings}},
             {4982, new int[] {4983, 4984}},
             {ItemID.Stynger, new int[] {ItemID.StyngerBolt}},
-            {ItemID.StakeLauncher, new int[] {ItemID.Stake}}
+            {ItemID.StakeLauncher, new int[] {ItemID.Stake}},
+            {ItemID.GrenadeLauncher, new int[] {ItemID.RocketI}}
         };
         private static readonly Dictionary<int, int> ChestDict = new Dictionary<int, int> {
             {21, 0},
@@ -81,7 +83,7 @@ namespace MajorItemRandomizer {
             return 1;
         }
         private static readonly HashSet<int> Sellables = new HashSet<int> {
-            931, 97
+            931, 97, ItemID.Stake, ItemID.StyngerBolt, ItemID.RocketI
         };
         #endregion
         public static int[] GetItemSet(int itemID, bool stripShop = false)
