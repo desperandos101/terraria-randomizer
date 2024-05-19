@@ -1,2 +1,1 @@
-- Fixed Martian Saucer not dropping any items
-- Fixed Duke Fishron dropping his original items after randomization
+- Changed Nymph, Tim, and Rune Wizard item drop chance to 100%

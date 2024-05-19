@@ -20,6 +20,6 @@ NOTES:
 - On the other hand, minibosses will drop one item at a time.
 - You can configure whether you would like to randomize fishing-related drops, and if you want certain Town NPCs to drop an item from the pool when they die. (namely the stylist, dye trader, painter, tavernkeep, tax collector, and princess)
 
-Compatibility with multiplayer and other mods are untested.
+Compatibility with special world seeds, multiplayer, and other mods are untested.
 
-Please let me know if you have any questions!
+Please let me know if you have any questions! I can offer live help on this Discord server: https://discord.gg/4acUk72jYz
