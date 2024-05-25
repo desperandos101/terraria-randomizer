@@ -1,1 +1,1 @@
-- Changed Nymph, Tim, and Rune Wizard item drop chance to 100%
+- Added The Eye Of Cthulhu yoyo to pool

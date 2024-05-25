@@ -218,7 +218,7 @@ namespace MajorItemRandomizer
 			/*Both Bloodies*/mySet.AddRulePool(1, new int[] {NPCID.GoblinShark, NPCID.BloodEelHead}, new int[] {ItemID.BloodHamaxe});
 			/*Dreadnautilus*/mySet.AddRulePool(1, new int[] {NPCID.BloodNautilus}, new int[] {ItemID.SanguineStaff}, 0, 1);
 
-			/*Mothron*/mySet.AddRulePool(1, new int[] {NPCID.Mothron}, new int[] {ItemID.MothronWings}, 0, 1);
+			/*Mothron*/mySet.AddRulePool(1, new int[] {NPCID.Mothron}, new int[] {ItemID.MothronWings, ItemID.TheEyeOfCthulhu}, 0, 1);
 			
 			/*Pirates*/mySet.AddRulePool(1, new int[] {NPCID.PirateCaptain, NPCID.PirateCorsair, NPCID.PirateCrossbower, NPCID.PirateDeadeye, NPCID.PirateDeckhand, NPCID.PirateShip}, new int[] {ItemID.CoinGun, ItemID.Cutlass, ItemID.DiscountCard, ItemID.GoldRing, ItemID.LuckyCoin, ItemID.PirateStaff}, 0, 1);
 			/*Ship*/mySet.AddRulePool(1, new int[] {NPCID.PirateShip}, new int[] {ItemID.PirateMinecart});
