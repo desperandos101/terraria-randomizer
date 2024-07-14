@@ -28,9 +28,10 @@ namespace MajorItemRandomizer
 {
     public class SetManagement : ModSystem
 	{
-		public static LootSet mySet = new LootSet();
+		public static LootSet mySet;
 		public static void ResetSet() {
 
+			mySet = new LootSet();
 			// TODO: Normalize NPC Drops
 
 			#region PreHardmode
@@ -279,7 +280,7 @@ namespace MajorItemRandomizer
 			if (!ModContent.GetInstance<RandoConfig>().EnableFishing) {
 				mySet.DisablePools(mySet.fishSet);
 				mySet.DisablePools(mySet.questSet);
-				mySet.DisablePools(mySet.dropRuleSet, s => s is DropRuleLootPool pool && ModifyCrates.mundaneCrateIDs.Contains(pool.registeredIDs[0]));
+				mySet.DisablePools(mySet.dropRuleSet, s => s is DropRuleLootPool pool && ItemReference.mundaneCrateIDs.Contains(pool.registeredIDs[0]));
 			}
 			if (ModContent.GetInstance<RandoConfig>().EnableTownDrops) {
 				mySet.GetRulePools(NPCID.DyeTrader)[0].randomSet = new int[1];
@@ -433,6 +434,8 @@ namespace MajorItemRandomizer
         public override void SaveWorldData(TagCompound tag)
         {
             tag[nameof(mySet)] = mySet;
+			ResetSet();
+
         }
         public override void LoadWorldData(TagCompound tag)
         {

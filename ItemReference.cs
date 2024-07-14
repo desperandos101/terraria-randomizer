@@ -16,6 +16,7 @@ using static System.Random;
 
 namespace MajorItemRandomizer {
     public static class ItemReference {
+        public static HashSet<int> mundaneCrateIDs = new HashSet<int>() {ItemID.WoodenCrate, ItemID.WoodenCrateHard, ItemID.IronCrate, ItemID.IronCrateHard, ItemID.GoldenCrate, ItemID.GoldenCrateHard};
         private static Random rnd = new Random();
         #region Private Datasets
         private static readonly (int, int[])[] NPCIDSets = {
