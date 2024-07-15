@@ -119,10 +119,9 @@ namespace MajorItemRandomizer
 			/*Ocean*/mySet.AddFishPool(0, new int[] {2332, 2341, 2342});
 			#endregion
 			#region Crates
-			/*Wood Crate Base*/mySet.AddRulePool(0, new int[] {ItemID.WoodenCrate, ItemID.WoodenCrateHard, ItemID.IronCrate, ItemID.IronCrateHard}, new int[] {ItemID.SailfishBoots, ItemID.TsunamiInABottle}, 2);
-			/*Hardmode Sundial*/mySet.AddRulePool(2, new int[] {ItemID.WoodenCrateHard, ItemID.IronCrateHard, ItemID.GoldenCrateHard}, new int[] {ItemID.Sundial}, 2);
+			/*Wood Crate Base*/mySet.AddRulePool(0, new int[] {ItemID.WoodenCrate, ItemID.WoodenCrateHard}, new int[] {ItemID.SailfishBoots, ItemID.TsunamiInABottle}, 2);
 			/*Iron Crate*/mySet.AddRulePool(0, new int[] {ItemID.IronCrate, ItemID.IronCrateHard}, new int[] {ItemID.GingerBeard, ItemID.TartarSauce, ItemID.FalconBlade}, 2);
-			/*Golden Crate*/mySet.AddRulePool(0, new int[] {ItemID.GoldenCrate, ItemID.GoldenCrateHard}, new int[] {ItemID.HardySaddle, ItemID.EnchantedSword}, 2);
+			/*Golden Crate*/mySet.AddRulePool(0, new int[] {ItemID.GoldenCrate, ItemID.GoldenCrateHard}, new int[] {ItemID.HardySaddle, ItemID.EnchantedSword, ItemID.Sundial}, 2);
 			#endregion
 			#region Smashables
 			/*Shadow Orb*/mySet.AddSmashPool(0, new int[] {ItemID.Musket, ItemID.ShadowOrb, ItemID.Vilethorn, ItemID.BallOHurt, ItemID.BandofStarpower}, 3);
