@@ -1,3 +1,5 @@
+[b]THE MULTIPLAYER LAG ISSUE HAS BEEN FIXED! Please let me know if any further issues with multiplayer crop up.[/b]
+
 Randomize the locations of accessories, weapons, and more!
 
 This randomizer aims to shake up the average Terraria playthrough by scrambling the locations of major equipment, ranging from accessories, weapons, hooks, armor sets, pets, and more. You might find a paintball gun in an underground desert chest, reel in a minishark, or find a musket being sold by the party girl. You are incentivized to deviate from your usual playstyle and check in spots you wouldn't normally check for the items you need to progress.
@@ -20,6 +22,6 @@ NOTES:
 - On the other hand, minibosses will drop one item at a time.
 - You can configure whether you would like to randomize fishing-related drops, and if you want certain Town NPCs to drop an item from the pool when they die. (namely the stylist, dye trader, painter, tavernkeep, tax collector, and princess)
 
-Compatibility with special world seeds, multiplayer, and other mods are untested.
+Compatibility with special world seeds and other mods are untested.
 
 Please let me know if you have any questions! I can offer live help on this Discord server: https://discord.gg/4acUk72jYz

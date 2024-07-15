@@ -446,10 +446,18 @@ namespace MajorItemRandomizer
 
 	public class FishLoot : ModPlayer {
         public override void OnEnterWorld()
-        {
-			if (!Main.ActiveWorldFileData.TryGetModVersionGeneratedWith("MajorItemRandomizer", out Version modVersion)) {
+        {	
+			try
+			{
+				if (!Main.ActiveWorldFileData.TryGetModVersionGeneratedWith("MajorItemRandomizer", out Version modVersion)) {
 				Main.NewText("[Major Item Randomizer] WARNING: This world is not randomized. Some things, like Town NPC Shops, may not work correctly. Please generate a new world with the mod enabled.");
 			}
+			}
+			catch (System.NullReferenceException)
+			{
+				Console.WriteLine("WAS NOT ABLE TO VALIDATE WORLD");
+			}
+			
         }
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
         {
