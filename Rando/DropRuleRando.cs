@@ -86,7 +86,7 @@ namespace CrateDrop {
             {	
                 npcLoot.RemoveWhere(rule => CheckRule(rule, itemsToRemove));
             }
-            if (mySet.GetRulePools(npcTypeFormatted).Any())
+            if (mySet.GetRulePool(npcTypeFormatted) is not null)
                 npcLoot.Add(new LootsetDropRule(50));
             if (new int [] {NPCID.Plantera}.Contains(npc.type))
                 npcLoot.Add(new CommonDrop(ItemID.TempleKey, 1));

@@ -49,16 +49,16 @@ namespace MajorItemRandomizer
 			#endregion
 			#region NPC Drops
 			/*Ale Tosser*/mySet.AddRulePool(0, new int[] {NPCID.DD2Bartender}, new int[] {ItemID.AleThrowingGlove}, -1);
-			/*Bat Bat*/mySet.AddRulePool(0, new int[] {49, 634, 51, 60, 150, 93, 137, 151, 121, 152, 158}, new int[] {5097});
-			/*Bezoar*/mySet.AddRulePool(0, new int[] {42, 176, 141}, new int[] {887});
+			/*Bat Bat*/mySet.AddRulePool(0, new int[] {NPCID.JungleBat}, new int[] {5097});
+			/*Bezoar*/mySet.AddRulePool(0, new int[] {NPCID.Hornet}, new int[] {887});
 			/*Blood Pool*/mySet.AddRulePool(0, new int[] {586, 587}, new int[] {4381, 4325, 4273});
 			/*Bone Sword + Helmets*/mySet.AddRulePool(0, new int[] {21}, new int[] {1166, 954, 955});
 			/*Cobalt Armor*/mySet.AddRulePool(0, new int[] {42, 43}, new int[] {960});
 			/*Combat Wrench*/mySet.AddRulePool(0, new int[] {NPCID.Mechanic}, new int[] {ItemID.CombatWrench}, -1);
-			/*Compass*/mySet.AddRulePool(0, new int[] {494, 496, 498, 58, 16, 185, 167, 197}, new int[] {393});
-			/*Chain Knife*/mySet.AddRulePool(0, new int[] {49}, new int[] {1325});
+			/*Compass*/mySet.AddRulePool(0, new int[] {NPCID.Piranha}, new int[] {393});
+			/*Chain Knife*/mySet.AddRulePool(0, new int[] {NPCID.CaveBat}, new int[] {1325});
 			/*Demon Scythe*/mySet.AddRulePool(0, new int[] {62, 66}, new int[] {272});
-			/*Depth Meter*/mySet.AddRulePool(0, new int[] {494, 496, 498, 49, 51, 150, 93, 634}, new int[] {18});
+			/*Depth Meter*/mySet.AddRulePool(0, new int[] {NPCID.IceBat}, new int[] {18});
 			/*Diving Helmet*/mySet.AddRulePool(0, new int[] {65}, new int[] {268});
 			/*Exotic Scimitar*/mySet.AddRulePool(0, new int[] {207}, new int[] {3349}, -1);
 			/*Giant Harpy Feather*/mySet.AddRulePool(0, new int[] {NPCID.Harpy}, new int[] {ItemID.GiantHarpyFeather});
@@ -69,21 +69,22 @@ namespace MajorItemRandomizer
 			/*Mandible Blade*/mySet.AddRulePool(0, new int[] {580, 581}, new int[] {3772});
 			/*Metal Detector*/mySet.AddRulePool(0, new int[] {195}, new int[] {3102});
 			/*Mining Set*/mySet.AddRulePool(0, new int[] {44}, new int[] {410});
-			/*Money Trough*/mySet.AddRulePool(0, new int[] {489, 490, 586, 587}, new int[] {3213});
-			/*Nazar*/mySet.AddRulePool(0, new int[] {NPCID.CursedSkull, NPCID.GiantCursedSkull, NPCID.CursedHammer, NPCID.CrimsonAxe, NPCID.EnchantedSword}, new int[] {ItemID.Nazar});
+			/*Money Trough*/mySet.AddRulePool(0, new int[] {NPCID.BloodZombie}, new int[] {3213});
+			/*Nazar*/mySet.AddRulePool(0, new int[] {NPCID.CursedSkull}, new int[] {ItemID.Nazar});
 			/*Night Vision Helmet*/mySet.AddRulePool(0, new int[] {482, 483}, new int[] {3109});
 			/*Obsidian Rose*/mySet.AddRulePool(0, new int[] {24}, new int[] {1323});
 			/*Paintball Gun*/mySet.AddRulePool(0, new int[] {227}, new int[] {3350}, -1);
-			/*Rally*/mySet.AddRulePool(0, new int[] {494, 496, 498}, new int[] {3285});
+			/*Rally*/mySet.AddRulePool(0, new int[] {NPCID.Crawdad, NPCID.GiantShelly, NPCID.Salamander}, new int[] {3285});
 			/*Snowball Launcher*/mySet.AddRulePool(0, new int[] {NPCID.SnowFlinx}, new int[] {ItemID.SnowballLauncher});
 			/*Shackle, Zombie Arm*/mySet.AddRulePool(0, new int[] {3}, new int[] {216, 1304});
 			/*Shadow Armor*/mySet.AddRulePool(0, new int[] {6}, new int[] {956});
-			/*Shark Tooth Necklace*/mySet.AddRulePool(0, new int[] {489, 490}, new int[] {3212});
+			/*Shark Tooth Necklace*/mySet.AddRulePool(0, new int[] {NPCID.Drippler}, new int[] {3212});
 			/*Shroomerang*/mySet.AddRulePool(0, new int[] {NPCID.SporeBat}, new int[] {ItemID.Shroomerang});
 			/*Slime Staff*/mySet.AddRulePool(0, new int[] {-3, 1, -8, -7, -9, -6, 147, 537, -10, 184, 204, 16, -5, -4, 535, 302, 333, 334, 335, 336, 141, 121, 138, 658, 659, 660}, new int[] {1309});
 			/*Stylish Scissors*/mySet.AddRulePool(0, new int[] {NPCID.Stylist}, new int[] {3352}, -1);
-			/*Tally Counter*/mySet.AddRulePool(0, new int[] {NPCID.CursedSkull, NPCID.DarkCaster, NPCID.AngryBones}, new int[] {ItemID.TallyCounter});
-			/*Tentacle Spike*/mySet.AddRulePool(0, new int[] {956, 7, NPCID.BloodCrawler, NPCID.Crimera, NPCID.FaceMonster}, new int[] {5094});
+			/*Tally Counter*/mySet.AddRulePool(0, new int[] {NPCID.DarkCaster, NPCID.AngryBones}, new int[] {ItemID.TallyCounter});
+			/*Tentacle Spike*/mySet.AddRulePool(0, new int[] {7, NPCID.BloodCrawler, NPCID.Crimera, NPCID.FaceMonster}, new int[] {5094});
+			/*Viking Helmet*/mySet.AddRulePool(0, new int[] {NPCID.UndeadViking}, new int[] {ItemID.VikingHelmet});
 			/*Wizard Hat*/mySet.AddRulePool(0, new int[] {45}, new int[] {238});
 
 			/*Globals*/mySet.AddGlobalItems(0, new int[] {ItemID.Cascade, ItemID.BloodyMachete, ItemID.BladedGlove});
@@ -158,13 +159,13 @@ namespace MajorItemRandomizer
 			/*Desert Chest*/mySet.AddChestPool(1, new int[] {65}, new int[] {ItemID.StormTigerStaff});
 			#endregion
 			#region NPC Drops
-			/*Adhesive Bandage*/mySet.AddRulePool(1, new int[] {NPCID.AnglerFish, NPCID.RustyArmoredBonesAxe, NPCID.Werewolf}, new int[] {ItemID.AdhesiveBandage});
+			/*Adhesive Bandage*/mySet.AddRulePool(1, new int[] {NPCID.AnglerFish}, new int[] {ItemID.AdhesiveBandage});
 			/*Ancient Horn*/mySet.AddRulePool(1, new int[] {NPCID.DesertBeast}, new int[] {ItemID.AncientHorn});
-			/*Armor Polish*/mySet.AddRulePool(1, new int[] {NPCID.ArmoredSkeleton, NPCID.BlueArmoredBones}, new int[] {ItemID.ArmorPolish});
+			/*Armor Polish*/mySet.AddRulePool(1, new int[] {NPCID.BlueArmoredBones}, new int[] {ItemID.ArmorPolish});
 			/*Bananarang*/mySet.AddRulePool(1, new int[] {NPCID.Clown}, new int[] {ItemID.Bananarang});
 			/*Beam Sword*/mySet.AddRulePool(1, new int[] {NPCID.ArmoredSkeleton}, new int[] {ItemID.BeamSword});
 			/*Blessed Apple*/mySet.AddRulePool(1, new int[] {NPCID.Unicorn}, new int[] {ItemID.BlessedApple});
-			/*Blindfold*/mySet.AddRulePool(1, new int[] {NPCID.CorruptSlime, NPCID.Crimslime, NPCID.BloodMummy, NPCID.DarkMummy, NPCID.Slimeling, NPCID.Slimer2}, new int[] {ItemID.Blindfold});
+			/*Blindfold*/mySet.AddRulePool(1, new int[] {NPCID.CorruptSlime, NPCID.Crimslime, NPCID.Slimeling, NPCID.Slimer2}, new int[] {ItemID.Blindfold});
 			/*Bone Lee*/mySet.AddRulePool(1, new int[] {NPCID.BoneLee}, new int[] {ItemID.BlackBelt, ItemID.Tabi});
 			/*Butcher's Chainsaw*/mySet.AddRulePool(1, new int[] {NPCID.Butcher}, new int[] {ItemID.ButchersChainsaw});
 			/*Butterfly Dust*/mySet.AddRulePool(1, new int[] {NPCID.Moth}, new int[] {ItemID.ButterflyDust});
@@ -176,8 +177,9 @@ namespace MajorItemRandomizer
 			/*Frost Staff*/mySet.AddRulePool(1, new int[] {NPCID.IceElemental, NPCID.IcyMerman}, new int[] {ItemID.FrostStaff});
 			/*Frozen Turtle Shell*/mySet.AddRulePool(1, new int[] {NPCID.IceTortoise}, new int[] {ItemID.FrozenTurtleShell});
 			/*Ice Feather*/mySet.AddRulePool(1, new int[] {NPCID.IceGolem}, new int[] {ItemID.IceFeather});
+			/*Ice Sickle*/mySet.AddRulePool(1, new int[] {NPCID.ArmoredViking}, new int[] {ItemID.IceSickle});
 			/*Inferno Fork*/mySet.AddRulePool(1, new int[] {NPCID.DiabolistRed}, new int[] {ItemID.InfernoFork});
-			/*Keybrand*/mySet.AddRulePool(1, new int[] {NPCID.BlueArmoredBones, NPCID.RustyArmoredBonesAxe, NPCID.HellArmoredBones}, new int[] {ItemID.Keybrand, ItemID.BoneFeather, ItemID.WispinaBottle, ItemID.MagnetSphere, ItemID.MaceWhip});
+			/*Keybrand*/mySet.AddRulePool(1, new int[] {NPCID.RustyArmoredBonesAxe, NPCID.HellArmoredBones}, new int[] {ItemID.Keybrand, ItemID.BoneFeather, ItemID.WispinaBottle, ItemID.MagnetSphere, ItemID.MaceWhip});
 			/*Megaphone*/mySet.AddRulePool(1, new int[] {NPCID.GreenJellyfish, NPCID.DarkMummy, NPCID.BloodMummy, NPCID.Pixie}, new int[] {ItemID.Megaphone});
 			/*Moon Charm*/mySet.AddRulePool(1, new int[] {NPCID.Werewolf}, new int[] {ItemID.MoonCharm});
 			/*Moon Stone*/mySet.AddRulePool(1, new int[] {NPCID.Vampire}, new int[] {ItemID.MoonStone, ItemID.BrokenBatWing}, 1);
@@ -199,7 +201,7 @@ namespace MajorItemRandomizer
 			/*Tactical Shotgun*/mySet.AddRulePool(1, new int[] {NPCID.TacticalSkeleton}, new int[] {ItemID.TacticalShotgun});
 			/*Tattered Bee Wing*/mySet.AddRulePool(1, new int[] {NPCID.MossHornet}, new int[] {ItemID.TatteredBeeWing});
 			/*Toxic Flask*/mySet.AddRulePool(1, new int[] {NPCID.DrManFly}, new int[] {ItemID.ToxicFlask});
-			/*Trifold Map*/mySet.AddRulePool(1, new int[] {NPCID.Clown, NPCID.GiantBat, NPCID.LightMummy}, new int[] {ItemID.TrifoldMap});
+			/*Trifold Map*/mySet.AddRulePool(1, new int[] {NPCID.GiantBat, NPCID.LightMummy}, new int[] {ItemID.TrifoldMap});
 			/*Unholy Trident*/mySet.AddRulePool(1, new int[] {NPCID.RedDevil}, new int[] {ItemID.UnholyTrident, ItemID.FireFeather});
 			/*Uzi*/mySet.AddRulePool(1, new int[] {NPCID.AngryTrapper}, new int[] {ItemID.Uzi});
 			/*Vitamins*/mySet.AddRulePool(1, new int[] {NPCID.Corruptor, NPCID.FloatyGross}, new int[] {ItemID.Vitamins});
@@ -280,24 +282,26 @@ namespace MajorItemRandomizer
 			if (!ModContent.GetInstance<RandoConfig>().EnableFishing) {
 				mySet.DisablePools(mySet.fishSet);
 				mySet.DisablePools(mySet.questSet);
-				mySet.DisablePools(mySet.dropRuleSet, s => s is DropRuleLootPool pool && ItemReference.mundaneCrateIDs.Contains(pool.registeredIDs[0]));
+				foreach(int i in ItemReference.mundaneCrateIDs) {
+					mySet.DisablePool(mySet.dropRuleSet[i]);
+				}
 			}
 			if (ModContent.GetInstance<RandoConfig>().EnableTownDrops) {
-				mySet.GetRulePools(NPCID.DyeTrader)[0].randomSet = new int[1];
-				mySet.GetRulePools(NPCID.DD2Bartender)[0].randomSet = new int[1];
-				mySet.GetRulePools(NPCID.Stylist)[0].randomSet = new int[1];
-				mySet.GetRulePools(NPCID.Painter)[0].randomSet = new int[1];
-				mySet.GetRulePools(NPCID.Mechanic)[0].randomSet = new int[1];
-				mySet.GetRulePools(NPCID.TaxCollector)[0].randomSet = new int[1];
-				mySet.GetRulePools(NPCID.Princess)[0].randomSet = new int[1];
+				mySet.GetRulePool(NPCID.DyeTrader).randomSet = new int[1];
+				mySet.GetRulePool(NPCID.DD2Bartender).randomSet = new int[1];
+				mySet.GetRulePool(NPCID.Stylist).randomSet = new int[1];
+				mySet.GetRulePool(NPCID.Painter).randomSet = new int[1];
+				mySet.GetRulePool(NPCID.Mechanic).randomSet = new int[1];
+				mySet.GetRulePool(NPCID.TaxCollector).randomSet = new int[1];
+				mySet.GetRulePool(NPCID.Princess).randomSet = new int[1];
 
-				mySet.GetRulePools(NPCID.DyeTrader)[0].fillRandom = true;
-				mySet.GetRulePools(NPCID.DD2Bartender)[0].fillRandom = true;
-				mySet.GetRulePools(NPCID.Stylist)[0].fillRandom = true;
-				mySet.GetRulePools(NPCID.Painter)[0].fillRandom = true;
-				mySet.GetRulePools(NPCID.Mechanic)[0].fillRandom = true;
-				mySet.GetRulePools(NPCID.TaxCollector)[0].fillRandom = true;
-				mySet.GetRulePools(NPCID.Princess)[0].fillRandom = true;
+				mySet.GetRulePool(NPCID.DyeTrader).fillRandom = true;
+				mySet.GetRulePool(NPCID.DD2Bartender).fillRandom = true;
+				mySet.GetRulePool(NPCID.Stylist).fillRandom = true;
+				mySet.GetRulePool(NPCID.Painter).fillRandom = true;
+				mySet.GetRulePool(NPCID.Mechanic).fillRandom = true;
+				mySet.GetRulePool(NPCID.TaxCollector).fillRandom = true;
+				mySet.GetRulePool(NPCID.Princess).fillRandom = true;
 			}
 			#endregion
 		}
@@ -308,118 +312,74 @@ namespace MajorItemRandomizer
 
 			if (WorldGen.crimson) {
 				mySet.GetOrbPool(ItemID.Musket).initialSet = new int[] {ItemID.TheUndertaker, ItemID.CrimsonHeart, ItemID.PanicNecklace, ItemID.CrimsonRod, ItemID.TheRottedFork}; //THE ONLY REASON INITIALSET CANT BE READONLY FUCK MY LIIIIFE
-				mySet.GetRulePools(13)[0].randoEnabled = false;
-				mySet.GetRulePools(6)[0].randoEnabled = false;
+				mySet.GetRulePool(13).randoEnabled = false;
+				mySet.GetRulePool(6).randoEnabled = false;
 				mySet.chestSet[24].randoEnabled = false;
-				mySet.GetRulePools(NPCID.BigMimicCorruption)[0].randoEnabled = false;
+				mySet.GetRulePool(NPCID.BigMimicCorruption).randoEnabled = false;
 			} else {
-				mySet.GetRulePools(NPCID.BrainofCthulhu)[0].randoEnabled = false;
+				mySet.GetRulePool(NPCID.BrainofCthulhu).randoEnabled = false;
 				mySet.chestSet[25].randoEnabled = false;
-				mySet.GetRulePools(NPCID.BigMimicCrimson)[0].randoEnabled = false;
+				mySet.GetRulePool(NPCID.BigMimicCrimson).randoEnabled = false;
 			}
 			if (Main.GameMode == 1 || Main.GameMode == 2) {
-				mySet.GetRulePools(NPCID.KingSlime)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.EyeofCthulhu)[0].randoEnabled = false;
-				mySet.GetRulePools(13)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.BrainofCthulhu)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.SkeletronHead)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.QueenBee)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.Deerclops)[0].randoEnabled = false;
+				mySet.GetRulePool(NPCID.KingSlime).randoEnabled = false;
+				mySet.GetRulePool(NPCID.EyeofCthulhu).randoEnabled = false;
+				mySet.GetRulePool(13).randoEnabled = false;
+				mySet.GetRulePool(NPCID.BrainofCthulhu).randoEnabled = false;
+				mySet.GetRulePool(NPCID.SkeletronHead).randoEnabled = false;
+				mySet.GetRulePool(NPCID.QueenBee).randoEnabled = false;
+				mySet.GetRulePool(NPCID.Deerclops).randoEnabled = false;
 
-				mySet.GetRulePools(NPCID.WallofFlesh)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.QueenSlimeBoss)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.TheDestroyer)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.Retinazer)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.SkeletronPrime)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.Plantera)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.Golem)[0].randoEnabled = false;
-				mySet.dropRuleSet.Remove(mySet.GetRulePools(ItemID.CursedSapling)[0]);
-				mySet.GetRulePools(NPCID.HallowBoss)[0].randoEnabled = false;
-				mySet.GetRulePools(NPCID.DukeFishron)[0].randoEnabled = false;
+				mySet.GetRulePool(NPCID.WallofFlesh).randoEnabled = false;
+				mySet.GetRulePool(NPCID.QueenSlimeBoss).randoEnabled = false;
+				mySet.GetRulePool(NPCID.TheDestroyer).randoEnabled = false;
+				mySet.GetRulePool(NPCID.Retinazer).randoEnabled = false;
+				mySet.GetRulePool(NPCID.SkeletronPrime).randoEnabled = false;
+				mySet.GetRulePool(NPCID.Plantera).randoEnabled = false;
+				mySet.GetRulePool(NPCID.Golem).randoEnabled = false;
+				mySet.dropRuleSet.Remove(ItemID.CursedSapling);
+				mySet.GetRulePool(NPCID.HallowBoss).randoEnabled = false;
+				mySet.GetRulePool(NPCID.DukeFishron).randoEnabled = false;
 			} else if (Main.GameMode == 0) {
-				mySet.GetRulePools(ItemID.KingSlimeBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.EyeOfCthulhuBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.EaterOfWorldsBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.BrainOfCthulhuBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.SkeletronBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.QueenBeeBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.DeerclopsBossBag)[0].randoEnabled = false;
+				mySet.GetRulePool(ItemID.KingSlimeBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.EyeOfCthulhuBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.EaterOfWorldsBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.BrainOfCthulhuBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.SkeletronBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.QueenBeeBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.DeerclopsBossBag).randoEnabled = false;
 
-				mySet.GetRulePools(ItemID.WallOfFleshBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.QueenSlimeBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.DestroyerBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.TwinsBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.SkeletronPrimeBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.PlanteraBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.GolemBossBag)[0].randoEnabled = false;
-				mySet.dropRuleSet.Remove(mySet.GetRulePools(ItemID.SpookyTwig)[0]);
-				mySet.GetRulePools(ItemID.FairyQueenBossBag)[0].randoEnabled = false;
-				mySet.GetRulePools(ItemID.FishronBossBag)[0].randoEnabled = false;
+				mySet.GetRulePool(ItemID.WallOfFleshBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.QueenSlimeBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.DestroyerBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.TwinsBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.SkeletronPrimeBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.PlanteraBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.GolemBossBag).randoEnabled = false;
+				mySet.dropRuleSet.Remove(ItemID.SpookyTwig);
+				mySet.GetRulePool(ItemID.FairyQueenBossBag).randoEnabled = false;
+				mySet.GetRulePool(ItemID.FishronBossBag).randoEnabled = false;
 			} else if (Main.GameMode == 3) {
-				mySet.GetRulePools(ItemID.KingSlimeBossBag)[0].initialSet = new int[] {ItemID.RoyalGel};
-				mySet.GetRulePools(ItemID.EyeOfCthulhuBossBag)[0].initialSet = new int[] {3097};
-				mySet.GetRulePools(ItemID.EaterOfWorldsBossBag)[0].initialSet = new int[] {ItemID.WormScarf};
-				mySet.GetRulePools(ItemID.BrainOfCthulhuBossBag)[0].initialSet = new int[] {ItemID.BrainOfConfusion};
-				mySet.GetRulePools(ItemID.SkeletronBossBag)[0].initialSet = new int[] {ItemID.BoneGlove};
-				mySet.GetRulePools(ItemID.QueenBeeBossBag)[0].initialSet = new int[] {ItemID.HiveBackpack};
-				mySet.GetRulePools(ItemID.DeerclopsBossBag)[0].initialSet = new int[] {ItemID.BoneHelm};
+				mySet.dropRuleSet[NPCID.KingSlime] = mySet.GetRulePool(ItemID.KingSlimeBossBag);
+				mySet.dropRuleSet[NPCID.EyeofCthulhu] = mySet.GetRulePool(ItemID.EyeOfCthulhuBossBag);
+				mySet.dropRuleSet[13] = mySet.GetRulePool(ItemID.EaterOfWorldsBossBag);
+				mySet.dropRuleSet[NPCID.BrainofCthulhu] = mySet.GetRulePool(ItemID.BrainOfCthulhuBossBag);
+				mySet.dropRuleSet[NPCID.SkeletronHead] = mySet.GetRulePool(ItemID.SkeletronBossBag);
+				mySet.dropRuleSet[NPCID.QueenBee] = mySet.GetRulePool(ItemID.QueenBeeBossBag);
+				mySet.dropRuleSet[NPCID.Deerclops] = mySet.GetRulePool(ItemID.DeerclopsBossBag);
 
-				mySet.GetRulePools(ItemID.WallOfFleshBossBag)[0].initialSet = new int[] {ItemID.DemonHeart};
-				mySet.GetRulePools(ItemID.QueenSlimeBossBag)[0].initialSet = new int[] {ItemID.VolatileGelatin};
-				mySet.GetRulePools(ItemID.DestroyerBossBag)[0].initialSet = new int[] {ItemID.MechanicalWagonPiece};
-				mySet.GetRulePools(ItemID.TwinsBossBag)[0].initialSet = new int[] {ItemID.MechanicalWheelPiece};
-				mySet.GetRulePools(ItemID.SkeletronPrimeBossBag)[0].initialSet = new int[] {ItemID.MechanicalBatteryPiece};
-				mySet.GetRulePools(ItemID.PlanteraBossBag)[0].initialSet = new int[] {ItemID.SporeSac};
-				mySet.GetRulePools(ItemID.GolemBossBag)[0].initialSet = new int[] {ItemID.ShinyStone};
-				mySet.dropRuleSet.Remove(mySet.GetRulePools(ItemID.CursedSapling)[0]);
-				mySet.GetRulePools(ItemID.FairyQueenBossBag)[0].initialSet = new int[] {ItemID.EmpressFlightBooster};
-				mySet.GetRulePools(ItemID.FishronBossBag)[0].initialSet = new int[] {ItemID.ShrimpyTruffle};
-
-				mySet.GetRulePools(ItemID.KingSlimeBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.EyeOfCthulhuBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.EaterOfWorldsBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.BrainOfCthulhuBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.SkeletronBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.QueenBeeBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.DeerclopsBossBag)[0].randomSet = new int[1];
-
-				mySet.GetRulePools(ItemID.WallOfFleshBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.QueenSlimeBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.DestroyerBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.TwinsBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.SkeletronPrimeBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.PlanteraBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.GolemBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.FairyQueenBossBag)[0].randomSet = new int[1];
-				mySet.GetRulePools(ItemID.FishronBossBag)[0].randomSet = new int[1];
-
-				mySet.GetRulePools(ItemID.WallOfFleshBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.QueenSlimeBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.DestroyerBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.TwinsBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.SkeletronPrimeBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.PlanteraBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.GolemBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.FairyQueenBossBag)[0].scoops = 0;
-				mySet.GetRulePools(ItemID.FishronBossBag)[0].scoops = 0;
+				mySet.dropRuleSet.Remove(ItemID.CursedSapling);
 				
-				mySet.GetRulePools(NPCID.KingSlime)[0].registeredIDs = new int[] {NPCID.KingSlime, ItemID.KingSlimeBossBag};
-				mySet.GetRulePools(NPCID.EyeofCthulhu)[0].registeredIDs = new int[] {NPCID.EyeofCthulhu, ItemID.EyeOfCthulhuBossBag};
-				mySet.GetRulePools(13)[0].registeredIDs = new int[] {13, ItemID.EaterOfWorldsBossBag};
-				mySet.GetRulePools(NPCID.BrainofCthulhu)[0].registeredIDs = new int[] {NPCID.BrainofCthulhu, ItemID.BrainOfCthulhuBossBag};
-				mySet.GetRulePools(NPCID.SkeletronHead)[0].registeredIDs = new int[] {NPCID.SkeletronHead, ItemID.SkeletronBossBag};
-				mySet.GetRulePools(NPCID.QueenBee)[0].registeredIDs = new int[] {NPCID.QueenBee, ItemID.QueenBeeBossBag};
-				mySet.GetRulePools(NPCID.Deerclops)[0].registeredIDs = new int[] {NPCID.Deerclops, ItemID.DeerclopsBossBag};
-
-				mySet.GetRulePools(NPCID.WallofFlesh)[0].registeredIDs = new int[] {NPCID.WallofFlesh, ItemID.WallOfFleshBossBag};
-				mySet.GetRulePools(NPCID.QueenSlimeBoss)[0].registeredIDs = new int[] {NPCID.QueenSlimeBoss, ItemID.QueenSlimeBossBag};
-				mySet.GetRulePools(NPCID.TheDestroyer)[0].registeredIDs = new int[] {NPCID.TheDestroyer, ItemID.DestroyerBossBag};
-				mySet.GetRulePools(NPCID.Retinazer)[0].registeredIDs = new int[] {NPCID.Retinazer, NPCID.Spazmatism, ItemID.TwinsBossBag};
-				mySet.GetRulePools(NPCID.SkeletronPrime)[0].registeredIDs = new int[] {NPCID.SkeletronPrime, ItemID.SkeletronPrimeBossBag};
-				mySet.GetRulePools(NPCID.Plantera)[0].registeredIDs = new int[] {NPCID.Plantera, ItemID.PlanteraBossBag};
-				mySet.GetRulePools(NPCID.Golem)[0].registeredIDs = new int[] {NPCID.Golem, ItemID.GolemBossBag};
-				mySet.GetRulePools(NPCID.HallowBoss)[0].registeredIDs = new int[] {NPCID.HallowBoss, ItemID.FairyQueenBossBag};
-				mySet.GetRulePools(NPCID.DukeFishron)[0].registeredIDs = new int[] {NPCID.DukeFishron, ItemID.FishronBossBag};
+				mySet.dropRuleSet[NPCID.WallofFlesh] = mySet.GetRulePool(ItemID.WallOfFleshBossBag);
+				mySet.dropRuleSet[NPCID.QueenSlimeBoss] = mySet.GetRulePool(ItemID.QueenSlimeBossBag);
+				mySet.dropRuleSet[NPCID.TheDestroyer] = mySet.GetRulePool(ItemID.DestroyerBossBag);
+				mySet.dropRuleSet[NPCID.Retinazer] = mySet.GetRulePool(ItemID.TwinsBossBag);
+				mySet.dropRuleSet[NPCID.Spazmatism] = mySet.GetRulePool(ItemID.TwinsBossBag);
+				mySet.dropRuleSet[NPCID.SkeletronPrime] = mySet.GetRulePool(ItemID.SkeletronPrimeBossBag);
+				mySet.dropRuleSet[NPCID.Plantera] = mySet.GetRulePool(ItemID.PlanteraBossBag);
+				mySet.dropRuleSet[NPCID.Golem] = mySet.GetRulePool(ItemID.GolemBossBag);
+				mySet.dropRuleSet[NPCID.HallowBoss] = mySet.GetRulePool(ItemID.FairyQueenBossBag);
+				mySet.dropRuleSet[NPCID.DukeFishron] = mySet.GetRulePool(ItemID.FishronBossBag);
 			}
 
 			mySet.Randomize();

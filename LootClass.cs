@@ -26,7 +26,7 @@ namespace LootClass {
         static Random rnd = new();
         #region Pool Sets
         public Dictionary<int, LootPool> chestSet = new Dictionary<int, LootPool>();
-        public HashSet<DropRuleLootPool> dropRuleSet = new HashSet<DropRuleLootPool>();
+        public Dictionary<int, LootPool> dropRuleSet = new Dictionary<int, LootPool>();
         public Dictionary<int, LootPool> shopSet = new Dictionary<int, LootPool>();
         public HashSet<LootPool> fishSet = new HashSet<LootPool>();
         public HashSet<LootPool> smashSet = new HashSet<LootPool>();
@@ -44,8 +44,11 @@ namespace LootClass {
             }
         }
         public void AddRulePool(int theRegion, int[] npcIDs, int[] itemList, int slots = 0, int scoops = 0) {
-            DropRuleLootPool newPool = new(theRegion, itemList, npcIDs, slots, scoops);
-            dropRuleSet.Add(newPool);
+            LootPool newPool = new(theRegion, itemList, slots, scoops);
+            foreach (int npcID in npcIDs) {
+                dropRuleSet[npcID] = newPool;
+            }
+            
         }
         public void AddShopPool(int theRegion, int npcID, int[] itemList, int slots = 0, int scoops = 0) {
             LootPool newPool = new(theRegion, itemList, slots, scoops);
@@ -70,20 +73,19 @@ namespace LootClass {
         public void AddGlobalItems(int theRegion, int[] items) => globalSet[theRegion].AddRange(items);
         #endregion
         #region Rule Collection Methods
-        public DropRuleLootPool[] GetRulePools(int npcID) => (from pool in dropRuleSet where pool.registeredIDs.Contains(npcID) select pool).ToArray();
+        public LootPool GetRulePool(int npcID) => dropRuleSet.Keys.Contains(npcID) ? dropRuleSet[npcID] : null;
         public int[] GetInitialRuleOptions(int npcID) {
-            LootPool[] pools = GetRulePools(npcID);
+            LootPool pool = GetRulePool(npcID);
             List<int> options = new List<int>();
-            foreach (LootPool pool in pools) 
-                foreach(int itemType in pool.initialSet)
-                    options.AddRange(ItemReference.GetItemSet(itemType));
-            
+            foreach(int itemType in pool.initialSet)
+                options.AddRange(ItemReference.GetItemSet(itemType));
             return options.ToArray();
         }
         public LootPool GetFishPool(int itemID) => fishSet.FirstOrDefault(pool => pool.initialSet.Contains(itemID));
         public LootPool GetOrbPool(int itemID) => smashSet.FirstOrDefault(pool => pool.initialSet.Contains(itemID));
         public int[] GetGlobalItems() => globalSet[0].Union(globalSet[1]).ToArray();
         #endregion
+        public void DisablePool(LootPool pool) => pool.randoEnabled = false;
         public void DisablePools(IEnumerable<LootPool> poolSet, Func<LootPool, bool> filter = null) {
             if (poolSet is Dictionary<int, LootPool> dict)
                 poolSet = dict.Values;
@@ -121,7 +123,7 @@ namespace LootClass {
                 List<int> allItems = new();
                 HashSet<LootPool> validChests = (from key in chestSet.Keys where key < 100 && chestSet[key].randoEnabled && chestSet[key].region == i select chestSet[key]).ToHashSet(); //pretty dumb exclusion, but this should prevent specifically biome crates from reappearing
                 
-                IEnumerable<LootPool> validRules = GetValidPools(dropRuleSet, i);
+                IEnumerable<LootPool> validRules = GetValidPools(dropRuleSet.Values, i);
                 IEnumerable<LootPool> validShops = GetValidPools(shopSet.Values, i);
                 IEnumerable<LootPool> validFishes = GetValidPools(fishSet, i);
                 IEnumerable<LootPool> validSmashes = GetValidPools(smashSet, i);
@@ -179,7 +181,7 @@ namespace LootClass {
                 }
             }
             for (int i = 0; i > 10000; i++)
-                if (GetRulePools(i).Any(p => p.randomSet is null))
+                if (GetRulePool(i) is null) //i forget what this was for
                     throw new Exception("fuck");
             Console.WriteLine(this);
 
@@ -197,10 +199,10 @@ namespace LootClass {
                 theText += $"CHEST {key}: ";
                 theText += $"{GetSetNames(chestSet[key])}\n";
             }
-            foreach (DropRuleLootPool pool in dropRuleSet) {
+            foreach (int key in dropRuleSet.Keys) { //This will loop over enemies that lead to the same pool. Too bad. So sad.
+                LootPool pool = dropRuleSet[key];
                 theText += $"NPCS ";
-                foreach (int npc in pool.registeredIDs)
-                    theText += $"{Lang.GetNPCName(npc)} ";
+                theText += $"{Lang.GetNPCName(key)} ";
                 theText += ": ";
                 theText += $"{GetSetNames(pool)}\n";
             }
@@ -237,7 +239,8 @@ namespace LootClass {
             {
                 ["chestSetKeys"] = chestSet.Keys.ToList(),
                 ["chestSetValues"] = chestSet.Values.ToList(),
-                ["dropRuleSet"] = dropRuleSet.ToList(),
+                ["dropRuleSetKeys"] = dropRuleSet.Keys.ToList(),
+                ["dropRuleSetValues"] = dropRuleSet.Values.ToList(),
                 ["shopSetKeys"] = shopSet.Keys.ToList(),
                 ["shopSetValues"] = shopSet.Values.ToList(),
                 ["fishSet"] = fishSet.ToList(),
@@ -254,7 +257,11 @@ namespace LootClass {
             {
                 lootset.chestSet[chestKeys[i]] = chestValues[i];
             }
-            lootset.dropRuleSet = tag.Get<List<DropRuleLootPool>>("dropRuleSet").ToHashSet();
+            List<int> dropKeys = tag.Get<List<int>>("dropRuleSetKeys");
+            List<LootPool> dropValues = tag.Get<List<LootPool>>("dropRuleSetValues");
+            for (int i = 0; i < dropKeys.Count; i++) {
+                lootset.dropRuleSet[dropKeys[i]] = dropValues[i];
+            }
             List<int> shopKeys = tag.Get<List<int>>("shopSetKeys");
             List<LootPool> shopValues = tag.Get<List<LootPool>>("shopSetValues");
             for (int i = 0; i < shopKeys.Count; i++)
@@ -338,37 +345,6 @@ namespace LootClass {
                 return chestPool;
             }
             #endregion
-    }
-    public class DropRuleLootPool : LootPool { //A more modular LootPool data type that has tags that can be matched to.
-    //This is used for NPC drops, crates and boss bags, since their IDs are unlikely to overlap. 
-        public int[] registeredIDs;
-        public DropRuleLootPool(int theRegion, int[] itemList, int[] npcIDset, int slots, int scoops) : base(theRegion, itemList, slots, scoops) {
-            registeredIDs = npcIDset;
-        }
-        #region TagSeralize Methods
-        public static readonly new Func<TagCompound, DropRuleLootPool> DESERIALIZER = Load;
-        public override TagCompound SerializeData()
-            {
-                return new TagCompound
-                {
-                    ["counter"] = counter,
-                    ["initialSet"] = initialSet,
-                    ["randomSet"] = randomSet,
-                    ["IsEnabled"] = randoEnabled,
-                    ["region"] = region,
-                    ["registeredIDs"] = registeredIDs,
-                };
-            }
-
-        public static new DropRuleLootPool Load(TagCompound tag)
-        {
-            var npcPool = new DropRuleLootPool(tag.GetInt("region"), tag.GetIntArray("initialSet"), tag.GetIntArray("registeredIDs"), 1, 0);
-            npcPool.counter = tag.GetInt("counter");
-            npcPool.randomSet = tag.GetIntArray("randomSet");
-            npcPool.randoEnabled = tag.GetBool("IsEnabled");
-            return npcPool;
-        }
-        #endregion
     }
         
 }

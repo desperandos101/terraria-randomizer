@@ -24,18 +24,14 @@ namespace CustomDropRule {
         public int denominator;
         public bool biomeCrate;
         private bool isNotEaterSegment(DropAttemptInfo info) => info.npc is null || !ItemReference.eowIDs.Contains(info.npc.type) || info.npc.boss;
-        public LootPool[] Pools(DropAttemptInfo info) {
+        public LootPool Pool(DropAttemptInfo info) {
             int id = info.npc is null ? info.item : info.npc.type;
-            return biomeCrate ? new LootPool[] {SetManagement.mySet.chestSet[id]} : SetManagement.mySet.GetRulePools(id.IDNPC());
+            return biomeCrate ? SetManagement.mySet.chestSet[id] : SetManagement.mySet.GetRulePool(id.IDNPC());
         }
         public int[] Options(DropAttemptInfo info) {
-            LootPool[] pools = Pools(info);
+            LootPool pool = Pool(info);
             
-            List<int> options = new List<int>();
-            foreach (LootPool pool in pools) {
-                options.AddRange(pool.GetSet());
-            }
-            return options.ToArray();
+            return pool.GetSet();
         }
         public LootsetDropRule(int myDenominator, bool isBiomeCrate = false) {
             
