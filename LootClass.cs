@@ -76,6 +76,8 @@ namespace LootClass {
         public LootPool GetRulePool(int npcID) => dropRuleSet.Keys.Contains(npcID) ? dropRuleSet[npcID] : null;
         public int[] GetInitialRuleOptions(int npcID) {
             LootPool pool = GetRulePool(npcID);
+            if (pool is null)
+                return [];
             List<int> options = new List<int>();
             foreach(int itemType in pool.initialSet)
                 options.AddRange(ItemReference.GetItemSet(itemType));
@@ -108,7 +110,7 @@ namespace LootClass {
             (1, new int[] {ItemID.RedsWings, ItemID.DTownsWings, ItemID.WillsWings, ItemID.CrownosWings, ItemID.CenxsWings, 3228, ItemID.Yoraiz0rWings, ItemID.JimsWings, ItemID.SkiphsWings, ItemID.LokisWings, ItemID.ArkhalisWings, ItemID.LeinforsWings, ItemID.GhostarsWings, ItemID.SafemanWings, ItemID.FoodBarbarianWings, ItemID.GroxTheGreatWings}),
             (2, new int[] {ItemID.FinWings, ItemID.IceFeather, ItemID.Jetpack, ItemID.LeafWings, ItemID.BrokenBatWing, ItemID.TatteredBeeWing, ItemID.ButterflyDust, ItemID.FireFeather, ItemID.BoneFeather, ItemID.MothronWings, ItemID.FestiveWings, ItemID.SpookyTwig, ItemID.BlackFairyDust, ItemID.SteampunkWings, ItemID.BetsyWings, ItemID.RainbowWings, ItemID.FishronWings})
         };
-        public IEnumerable<LootPool> GetValidPools(IEnumerable<LootPool> pools, int region) => from pool in pools where pool.region == region && pool.randoEnabled select pool;
+        public IEnumerable<LootPool> GetValidPools(IEnumerable<LootPool> pools, int region) => from pool in pools where pool.progressionRegion == region && pool.randoEnabled select pool;
         public void SortAndFill(IEnumerable<LootPool> pools, List<int> allItems, ref int allItemCount, List<LootPool> scooperPools, int defaultSetSize = 0) {
             foreach (LootPool pool in pools) {
                 if (pool.scoops == 0) {
@@ -121,9 +123,9 @@ namespace LootClass {
         public void Randomize() {
             for (int i = 0; i < 2; i++) {
                 List<int> allItems = new();
-                HashSet<LootPool> validChests = (from key in chestSet.Keys where key < 100 && chestSet[key].randoEnabled && chestSet[key].region == i select chestSet[key]).ToHashSet(); //pretty dumb exclusion, but this should prevent specifically biome crates from reappearing
+                HashSet<LootPool> validChests = (from key in chestSet.Keys where key < 100 && chestSet[key].randoEnabled && chestSet[key].progressionRegion == i select chestSet[key]).ToHashSet(); //pretty dumb exclusion, but this should prevent specifically biome crates from reappearing
                 
-                IEnumerable<LootPool> validRules = GetValidPools(dropRuleSet.Values, i);
+                HashSet<LootPool> validRules = GetValidPools(dropRuleSet.Values, i).ToHashSet();
                 IEnumerable<LootPool> validShops = GetValidPools(shopSet.Values, i);
                 IEnumerable<LootPool> validFishes = GetValidPools(fishSet, i);
                 IEnumerable<LootPool> validSmashes = GetValidPools(smashSet, i);
@@ -282,12 +284,12 @@ namespace LootClass {
             public bool randoEnabled = true;
             #region World Gen Data
             //This data is not saved or loaded after randomization is done, as this info is only needed during generation
-            public int region;
+            public int progressionRegion;
             public bool fillRandom = true;
             public int scoops; //ONLY FOR USE WITH LEFTOVER SLOTS! Use slots to set size otherwise
             #endregion
-            public LootPool(int theRegion, int[] itemList, int slots, int theScoops = 0) {
-                region = theRegion;
+            public LootPool(int theProgressionRegion, int[] itemList, int slots, int theScoops = 0) {
+                progressionRegion = theProgressionRegion;
                 initialSet = itemList;
                 if (slots == -1) {
                     randomSet = new int[0];
@@ -332,13 +334,13 @@ namespace LootClass {
                     ["initialSet"] = initialSet,
                     ["randomSet"] = randomSet,
                     ["randoEnabled"] = randoEnabled,
-                    ["region"] = region,
+                    ["progressionRegion"] = progressionRegion,
                 };
             }
 
             public static LootPool Load(TagCompound tag)
             {
-                var chestPool = new LootPool(tag.GetInt("region"), tag.GetIntArray("initialSet"), 1);
+                var chestPool = new LootPool(tag.GetInt("progressionRegion"), tag.GetIntArray("initialSet"), 1);
                 chestPool.counter = tag.GetInt("counter");
                 chestPool.randomSet = tag.GetIntArray("randomSet");
                 chestPool.randoEnabled = tag.GetBool("randoEnabled");

@@ -35,6 +35,7 @@ namespace PreBobbery {
         private void GiveFish(Player thePlayer, int itemType, Projectile proj) {
             Item item = new Item();
             item.SetDefaults(itemType);
+            #region Bomb Fish and Frost Dagger Source Stuff
             if (itemType == 3196) { //just for bomb fishies and frost daggers, aka more source code stuff
                 int finalFishingLevel = thePlayer.GetFishingConditions().FinalFishingLevel;
                 int minValue = (finalFishingLevel / 20 + 3) / 2;
@@ -74,6 +75,7 @@ namespace PreBobbery {
                 int stack2 = Main.rand.Next(minValue2, num2 + 1);
                 item.stack = stack2;
             }
+            #endregion
             PlayerLoader.ModifyCaughtFish(thePlayer, item);
             ItemLoader.CaughtFishStack(item); //THIS IS HOW I KNOW IM DEEP IN SOME SHIT
 

@@ -23,6 +23,7 @@ using Mono.CompilerServices.SymbolWriter;
 using Terraria.WorldBuilding;
 using Terraria.IO;
 using System;
+using Terraria.GameContent.Events;
 
 namespace MajorItemRandomizer
 {
@@ -32,7 +33,7 @@ namespace MajorItemRandomizer
 		public static void ResetSet() {
 
 			mySet = new LootSet();
-			// TODO: Normalize NPC Drops
+			// TODO: Use NETIDS instead of my stupid stuff.
 
 			#region PreHardmode
 			#region Chests
@@ -401,6 +402,13 @@ namespace MajorItemRandomizer
             mySet = new LootSet();
 			mySet = tag.Get<LootSet>(nameof(mySet));
         }
+        public override void Load()
+        {
+            MonoModHooks.Add(typeof(DD2Event).GetProperty("ReadyToFindBartender").GetGetMethod(), TrueBartender);
+        }
+		private static bool TrueBartender(Func<bool> orig) {
+			return true;
+		}
     }
 
 	public class FishLoot : ModPlayer {

@@ -46,7 +46,7 @@ namespace MyExtensions {
             }
             return newArray;
         }
-        public static Dictionary<TKey, TValue> ConvertTupleToDict<TKey, TValue>((TValue, TKey[])[] tupleArray) {
+        public static Dictionary<TKey, TValue> ConvertToDict<TKey, TValue>(this (TValue, TKey[])[] tupleArray) {
             Dictionary<TKey, TValue> dict = new Dictionary<TKey, TValue>();
             foreach((TValue, TKey[]) tuple in tupleArray) {
                 foreach (TKey key in tuple.Item2) {
@@ -54,7 +54,18 @@ namespace MyExtensions {
                 }
             }
             return dict;
-        } 
+        }
+        public static TValue UseAsDict<TKey, TValue>(this (TValue, TKey[])[] tupleDict, TKey value, bool refuseZero = false) {
+            foreach((TValue, TKey[]) idSet in tupleDict) {
+                if(idSet.Item2.Contains(value)) {
+                    return idSet.Item1;
+                }
+            }
+            if (refuseZero) {
+                throw new Exception($"Value {value} not found in tupledict.");
+            }
+            return default;
+        }
         
     }
 }

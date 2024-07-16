@@ -27,6 +27,7 @@ using CrateDrop;
 using Mono.CompilerServices.SymbolWriter;
 
 using Terraria;
+using MajorItemRandomizer.RegionLocking;
 
 namespace MajorItemRandomizer {
     public static class ChestRando {
@@ -42,6 +43,12 @@ namespace MajorItemRandomizer {
 				if (chestKey == -1) {
 					continue;
 				}
+				/*
+				Main.tile[chest.x, chest.y].ResetToType(TileID.Containers2);
+				Main.tile[chest.x+1, chest.y].ResetToType(TileID.Containers2);
+				Main.tile[chest.x, chest.y+1].ResetToType(TileID.Containers2);
+				Main.tile[chest.x+1, chest.y+1].ResetToType(TileID.Containers2);
+				*/
 
 				if (SetManagement.mySet.chestSet.Keys.Contains(chestKey) && SetManagement.mySet.chestSet[chestKey].randoEnabled) {
 					int oldItem = chest.item[0].type;

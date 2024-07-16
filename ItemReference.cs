@@ -1,6 +1,7 @@
 using Humanizer;
 using LootClass;
 using Microsoft.Xna.Framework;
+using MyExtensions;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,10 @@ namespace MajorItemRandomizer {
             (NPCID.Necromancer, new int[] {NPCID.NecromancerArmored}),
             (NPCID.RaggedCaster, new int[] {NPCID.RaggedCasterOpenCoat}),
             (NPCID.Vampire, new int[] {NPCID.VampireBat}),
-            (NPCID.MartianSaucer, new int[] {NPCID.MartianSaucerCore})
+            (NPCID.MartianSaucer, new int[] {NPCID.MartianSaucerCore}),
+            (NPCID.BlackRecluse, new int[] {NPCID.BlackRecluseWall}),
+            (NPCID.JungleCreeper, new int[] {NPCID.JungleCreeperWall}),
+            (NPCID.DesertScorpionWalk, new int[] {NPCID.DesertScorpionWall}),
             };
         public static int[] eowIDs = new int[] {13, 14, 15};
         
@@ -139,7 +143,7 @@ namespace MajorItemRandomizer {
                 return -1;
             }
             if (chestType % 36 != 0) {
-                throw new Exception($"TileFrameX, {chestType}, is not divisible by 36.");
+                return -1;
             }
             int ChestID = chestType / 36 + ChestDict[chestTileID];
             if (WallOverride.Keys.Contains((ChestID, chestWall))) {
@@ -148,21 +152,21 @@ namespace MajorItemRandomizer {
             return ChestID;
         }
 
+        public static int IDChest(int i, int j) => Main.tile[i, j].IDChest();
+
         
         public static int IDNPC(this NPC npc) {
             int id = npc.type;
-            foreach((int, int[]) idSet in NPCIDSets) {
-                if(idSet.Item2.Contains(id)) {
-                    return idSet.Item1;
-                }
+            int newID = NPCIDSets.UseAsDict(id);
+            if (newID != 0) {
+                return newID;
             }
             return id;
         }
         public static int IDNPC(this int id) {
-            foreach((int, int[]) idSet in NPCIDSets) {
-                if(idSet.Item2.Contains(id)) {
-                    return idSet.Item1;
-                }
+            int newID = NPCIDSets.UseAsDict(id);
+            if (newID != 0) {
+                return newID;
             }
             return id;
         }

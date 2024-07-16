@@ -12,6 +12,8 @@ using LootClass;
 using System.Collections.Generic;
 using CustomDropRule;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Data;
+using MajorItemRandomizer.RegionLocking;
 
 namespace CrateDrop {
     
@@ -76,8 +78,7 @@ namespace CrateDrop {
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if (new int [] {NPCID.DukeFishron}.Contains(npc.type))
-                Console.WriteLine("<LOADED>");
+            
             LootSet mySet = SetManagement.mySet;
             int npcTypeFormatted = npc.IDNPC();
             int[] itemsToRemove = mySet.GetInitialRuleOptions(npcTypeFormatted);
@@ -91,7 +92,41 @@ namespace CrateDrop {
             if (new int [] {NPCID.Plantera}.Contains(npc.type))
                 npcLoot.Add(new CommonDrop(ItemID.TempleKey, 1));
             
+            List<IItemDropRule> ruleList = npcLoot.Get(false);
+            npcLoot.RemoveWhere(rule => true, false);
+            LeadingConditionRule funRule = new LeadingConditionRule(new LockCondition());
+            foreach (IItemDropRule rule in ruleList) {
+                funRule.OnSuccess(rule);
+            }
+            npcLoot.Add(funRule);
         }
+        public override void ModifyGlobalLoot(GlobalLoot globalLoot)
+        {
+            List<IItemDropRule> ruleList = globalLoot.Get();
+            globalLoot.RemoveWhere(rule => true);
+            LeadingConditionRule funRule = new LeadingConditionRule(new LockCondition());
+            foreach (IItemDropRule rule in ruleList) {
+                funRule.OnSuccess(rule);
+            }
+            globalLoot.Add(funRule);
+        }
+    }
+    
+    public class LockCondition : IItemDropRuleCondition {
+        public bool CanDrop(DropAttemptInfo info) {
+            bool truth = info.IsNPCRegionLocked();
+            if (truth) {
+                Main.NewText("IT CAN DROP");
+                return true;
+            } else {
+                Main.NewText("IT CANNOT DROP");
+                return false;
+            }
+        }
+        public string GetConditionDescription() {
+            return "I don't know.";
+        }
+        public bool CanShowItemDropInUI() => true;
     }
     
 }

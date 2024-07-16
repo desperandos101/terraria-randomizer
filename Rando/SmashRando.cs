@@ -12,6 +12,7 @@ using LootClass;
 using System.Collections.Generic;
 using CustomDropRule;
 using System.Numerics;
+using MajorItemRandomizer.RegionLocking;
 
 namespace MyOrb {
     public class EntitySource_TileBreak_Rando : IEntitySource {
